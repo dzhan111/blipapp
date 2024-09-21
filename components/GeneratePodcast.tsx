@@ -1,7 +1,7 @@
-import { useToast } from "@/components/ui/use-toast"
-import { api } from '@/convex/_generated/api'
-import { GeneratePodcastProps } from '@/types'
-import { useAction, useMutation } from 'convex/react'
+import { useToast } from "@/components/ui/use-toast";
+import { api } from '@/convex/_generated/api';
+import { GeneratePodcastProps } from '@/types';
+import { useAction, useMutation } from 'convex/react';
 import { Loader } from 'lucide-react';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
@@ -77,7 +77,7 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
     <div>
       <div className="flex flex-col gap-2.5">
         <Label className="text-16 font-bold text-white-1">
-          AI Prompt to generate Podcast
+          Generate the audio here!
         </Label>
         <Textarea 
           className="input-class font-light focus-visible:ring-offset-orange-1"

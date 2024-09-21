@@ -1,7 +1,7 @@
-import { useToast } from "@/components/ui/use-toast"
-import { api } from '@/convex/_generated/api'
-import { GeneratePodcastTextProps } from '@/types'
-import { useAction } from 'convex/react'
+import { useToast } from "@/components/ui/use-toast";
+import { api } from '@/convex/_generated/api';
+import { GeneratePodcastTextProps } from '@/types';
+import { useAction } from 'convex/react';
 import { Loader } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from './ui/button';
@@ -19,12 +19,7 @@ const useGeneratePodcastText = ({
   const generatePodcast = async () => {
     setIsGenerating(true);
 
-    if(!textPrompt) {
-      toast({
-        title: "Please provide a voiceType to generate a podcast",
-      })
-      return setIsGenerating(false);
-    }
+    
 
     try {
       const response = await getPodcastText({
@@ -57,11 +52,11 @@ const GeneratePodcast = (props: GeneratePodcastTextProps) => {
     <div className="pb-5">
       <div className="flex flex-col gap-2.5">
         <Label className="text-16 font-bold text-white-1">
-          AI Prompt to generate Podcast Text
+          Use AI to generate text!
         </Label>
         <Textarea 
           className="input-class font-light focus-visible:ring-offset-orange-1"
-          placeholder='Provide text to generate the transcript'
+          placeholder='Your thoughts here'
           rows={5}
           value={props.textPrompt}
           onChange={(e) => props.setTextPrompt(e.target.value)}
