@@ -173,10 +173,10 @@ const PodcastPlayer = () => {
               className="cursor-pointer"
             />
           </div>
-          <div className="flex w-full gap-2">
+          <div className="flex w-full gap-2  bg-orange-1 p-2 ml-4 font-bold text-white-1  rounded-xl">
             <button
               onClick={() => setAudio(undefined)}
-              className="cursor-pointer bg-orange-1 w-24 h-24"
+              className="cursor-pointer text-16"
             >
             Close
             </button>
