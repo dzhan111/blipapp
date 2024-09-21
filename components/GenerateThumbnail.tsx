@@ -1,17 +1,17 @@
-import { useRef, useState } from 'react';
-import { Button } from './ui/button'
+import { api } from '@/convex/_generated/api';
 import { cn } from '@/lib/utils';
+import { GenerateThumbnailProps } from '@/types';
+import { useUploadFiles } from '@xixixao/uploadstuff/lib/useUploadFiles';
+import { useAction, useMutation } from 'convex/react';
+import { Loader } from 'lucide-react';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
-import { GenerateThumbnailProps } from '@/types';
-import { Loader } from 'lucide-react';
-import { Input } from './ui/input';
-import Image from 'next/image';
 import { useToast } from './ui/use-toast';
-import { useAction, useMutation } from 'convex/react';
-import { useUploadFiles } from '@xixixao/uploadstuff/react';
-import { api } from '@/convex/_generated/api';
-import { v4 as uuidv4 } from 'uuid';
 
 const GenerateThumbnail = ({ setImage, setImageStorageId, image, imagePrompt, setImagePrompt }: GenerateThumbnailProps) => {
   const [isAiThumbnail, setIsAiThumbnail] = useState(false);
