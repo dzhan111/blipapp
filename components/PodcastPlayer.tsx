@@ -15,7 +15,7 @@ const PodcastPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const { audio } = useAudio();
+  const { audio, setAudio } = useAudio();
 
   const togglePlayPause = () => {
     if (audioRef.current?.paused) {
@@ -172,6 +172,14 @@ const PodcastPlayer = () => {
               onClick={toggleMute}
               className="cursor-pointer"
             />
+          </div>
+          <div className="flex w-full gap-2">
+            <button
+              onClick={() => setAudio(undefined)}
+              className="cursor-pointer bg-orange-1 w-24 h-24"
+            >
+            Close
+            </button>
           </div>
         </div>
       </section>
