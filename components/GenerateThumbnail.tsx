@@ -113,7 +113,7 @@ const GenerateThumbnail = ({ setImage, setImageStorageId, image, imagePrompt, se
             />
           </div>
           <div className="w-full max-w-[200px]">
-          <Button type="submit" className="text-16 bg-orange-1 py-4 font-bold text-white-1" onClick={generateImage}>
+          <Button className="text-16 bg-orange-1 py-4 font-bold text-white-1" onClick={generateImage}>
             {isImageLoading ? (
               <>
                 Generating
