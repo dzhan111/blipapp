@@ -4,15 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
+import GeneratePodcast from "@/components/GeneratePodcast"
+import GeneratePodcastText from "@/components/GeneratePodcastText"
+import GenerateThumbnail from "@/components/GenerateThumbnail"
 import { Button } from "@/components/ui/button"
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
+  FormControl, FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -21,20 +22,17 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
+  SelectValue
 } from "@/components/ui/select"
-import { cn } from "@/lib/utils"
-import { useState } from "react"
 import { Textarea } from "@/components/ui/textarea"
-import GeneratePodcast from "@/components/GeneratePodcast"
-import GenerateThumbnail from "@/components/GenerateThumbnail"
-import { Loader } from "lucide-react"
-import { Id } from "@/convex/_generated/dataModel"
 import { useToast } from "@/components/ui/use-toast"
-import { useMutation } from "convex/react"
 import { api } from "@/convex/_generated/api"
+import { Id } from "@/convex/_generated/dataModel"
+import { cn } from "@/lib/utils"
+import { useMutation } from "convex/react"
+import { Loader } from "lucide-react"
 import { useRouter } from "next/navigation"
-import GeneratePodcastText from "@/components/GeneratePodcastText"
+import { useState } from "react"
 
 const voiceCategories = ['alloy', 'shimmer', 'nova', 'echo', 'fable', 'onyx'];
 
@@ -123,7 +121,7 @@ const CreatePodcast = () => {
                 <FormItem className="flex flex-col gap-2.5">
                   <FormLabel className="text-16 font-bold text-white-1">Title</FormLabel>
                   <FormControl>
-                    <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="JSM Pro Podcast" {...field} />
+                    <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="Your Podcast Name" {...field} />
                   </FormControl>
                   <FormMessage className="text-white-1" />
                 </FormItem>
