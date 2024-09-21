@@ -1,7 +1,7 @@
 import { api } from '@/convex/_generated/api';
 import { cn } from '@/lib/utils';
 import { GenerateThumbnailProps } from '@/types';
-import { useUploadFiles } from '@xixixao/uploadstuff/lib/useUploadFiles';
+import { useUploadFiles } from '@xixixao/uploadstuff/react';
 import { useAction, useMutation } from 'convex/react';
 import { Loader } from 'lucide-react';
 import Image from 'next/image';
