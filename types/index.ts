@@ -50,6 +50,12 @@ export interface ProfilePodcastProps {
   listeners: number;
 }
 
+export interface GeneratePodcastTextProps {
+  setVoicePrompt: Dispatch<SetStateAction<string>>;
+  setTextPrompt: Dispatch<SetStateAction<string>>;
+  textPrompt: string;
+}
+
 export interface GeneratePodcastProps {
   voiceType: string;
   setAudio: Dispatch<SetStateAction<string>>;

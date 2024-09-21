@@ -7,11 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'lovely-flamingo-139.convex.cloud'
-      },
-      {
-        protocol: 'https',
-        hostname: 'sleek-capybara-771.convex.cloud'
+        hostname: 'cheerful-penguin-217.convex.cloud'
       },
       {
         protocol: 'https',

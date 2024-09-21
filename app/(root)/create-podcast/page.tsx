@@ -34,6 +34,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { useMutation } from "convex/react"
 import { api } from "@/convex/_generated/api"
 import { useRouter } from "next/navigation"
+import GeneratePodcastText from "@/components/GeneratePodcastText"
 
 const voiceCategories = ['alloy', 'shimmer', 'nova', 'echo', 'fable', 'onyx'];
 
@@ -47,6 +48,8 @@ const CreatePodcast = () => {
   const [imagePrompt, setImagePrompt] = useState('');
   const [imageStorageId, setImageStorageId] = useState<Id<"_storage"> | null>(null)
   const [imageUrl, setImageUrl] = useState('');
+
+  const [textPrompt, setTextPrompt] = useState('');
   
   const [audioUrl, setAudioUrl] = useState('');
   const [audioStorageId, setAudioStorageId] = useState<Id<"_storage"> | null>(null)
@@ -168,6 +171,14 @@ const CreatePodcast = () => {
             />
           </div>
           <div className="flex flex-col pt-10">
+              <GeneratePodcastText 
+                setTextPrompt={setTextPrompt}
+                textPrompt={textPrompt}
+                setVoicePrompt={setVoicePrompt}
+              >
+
+              </GeneratePodcastText>
+
               <GeneratePodcast 
                 setAudioStorageId={setAudioStorageId}
                 setAudio={setAudioUrl}
