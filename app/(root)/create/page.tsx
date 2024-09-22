@@ -109,7 +109,7 @@ const CreatePodcast = () => {
 
   return (
     <section className="mt-10 flex flex-col">
-      <h1 className="text-20 font-bold text-white-1">Create Podcast</h1>
+      <h1 className="text-20 font-bold text-white-1">Create Blip</h1>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 flex w-full flex-col">
@@ -121,7 +121,7 @@ const CreatePodcast = () => {
                 <FormItem className="flex flex-col gap-2.5">
                   <FormLabel className="text-16 font-bold text-white-1">Title</FormLabel>
                   <FormControl>
-                    <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="Your Podcast Name" {...field} />
+                    <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="Your Blip Name" {...field} />
                   </FormControl>
                   <FormMessage className="text-white-1" />
                 </FormItem>
@@ -161,7 +161,7 @@ const CreatePodcast = () => {
                 <FormItem className="flex flex-col gap-2.5">
                   <FormLabel className="text-16 font-bold text-white-1">Description</FormLabel>
                   <FormControl>
-                    <Textarea className="input-class focus-visible:ring-offset-orange-1" placeholder="Write a short podcast description" {...field} />
+                    <Textarea className="input-class focus-visible:ring-offset-orange-1" placeholder="Write a short description of your blip" {...field} />
                   </FormControl>
                   <FormMessage className="text-white-1" />
                 </FormItem>
@@ -203,7 +203,7 @@ const CreatePodcast = () => {
                       <Loader size={20} className="animate-spin ml-2" />
                     </>
                   ) : (
-                    'Submit & Publish Podcast'
+                    'Publish your blip'
                   )}
                 </Button>
               </div>

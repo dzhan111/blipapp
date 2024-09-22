@@ -39,11 +39,11 @@ const RightSidebar = () => {
         </Link>
       </SignedIn>
       <section>
-        <Header headerTitle="Fans Like You" />
+        <Header headerTitle="For You" />
         <Carousel fansLikeDetail={topPodcasters!}/>
       </section>
       <section className="flex flex-col gap-8 pt-12">
-        <Header headerTitle="Top Podcastrs" />
+        <Header headerTitle="Top Blipstrs" />
         <div className="flex flex-col gap-6">
           {topPodcasters?.slice(0, 3).map((podcaster) => (
             <div key={podcaster._id} className="flex cursor-pointer justify-between" onClick={() => router.push(`/profile/${podcaster.clerkId}`)}>
@@ -58,7 +58,7 @@ const RightSidebar = () => {
                 <h2 className="text-14 font-semibold text-white-1">{podcaster.name}</h2>
               </figure>
               <div className="flex items-center">
-                <p className="text-12 font-normal text-white-1">{podcaster.totalPodcasts} podcasts</p>
+                <p className="text-12 font-normal text-white-1">{podcaster.totalPodcasts} blips</p>
               </div> 
             </div>
           ))}

@@ -75,9 +75,9 @@ const PodcastDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'po
         ) : (
           <> 
             <EmptyState 
-              title="No similar podcasts found"
+              title="No similar blips found"
               buttonLink="/discover"
-              buttonText="Discover more podcasts"
+              buttonText="Discover more blips"
             />
           </>
         )}

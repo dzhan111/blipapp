@@ -11,7 +11,7 @@ const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if(pathname === '/create-podcast') setAudio(undefined);
+    if(pathname === '/create') setAudio(undefined);
   }, [pathname])
 
   return (

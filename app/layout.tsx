@@ -8,7 +8,7 @@ const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Blip",
-  description: "Generate your podcasts using AI",
+  description: "Generate your blips with AI",
   icons: {
     icon: '/icons/logo.svg'
   }
