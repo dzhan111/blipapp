@@ -12,7 +12,7 @@ export const sidebarLinks = [
   {
     imgURL: "/icons/microphone.svg",
     route: "/create",
-    label: "Create blip",
+    label: "Create",
   },
 ];
 
