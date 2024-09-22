@@ -7,10 +7,9 @@ import { formatTime } from "@/lib/formatTime";
 import { cn } from "@/lib/utils";
 import { useAudio } from "@/providers/AudioProvider";
 
-import { Progress } from "./ui/progress";
-import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { Id } from "@/convex/_generated/dataModel";
+import { useQuery } from "convex/react";
+import { Progress } from "./ui/progress";
 
 const PodcastPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -133,7 +132,7 @@ const PodcastPlayer = () => {
           onEnded={handleAudioEnded}
         />
         <div className="flex items-center gap-4 max-md:hidden">
-          <Link href={`/podcast/${audio?.podcastId}`}>
+          <Link href={`/podcasts/${audio?.podcastId}`}>
             <Image
               src={audio?.imageUrl! || "/images/player1.png"}
               width={64}
