@@ -13,7 +13,7 @@ export const generatePodcastTextAction = action({
     const completionCreateResponse = await client.chat.completions.create({
         
         messages: [
-            { role: 'user', content: 'Your job is to be the speaker for a story or long-form single-speaker podcast about the topic and genre that the user provides. The user will also provide a podcast name and an optional speaker name. Do not include any metadata or stage directions in the podcast. Start the podcast immediately after this message.'},
+            { role: 'user', content: 'Your job is to be the speaker for a story or long-form single-speaker podcast about the topic that the user provides. The user may also provide a podcast name and a speaker name. Do not include any metadata or stage directions in the podcast. Start the podcast immediately after this message.'},
             { role: 'user', content: input}
         ],
         model: 'llama3.1-8b',
