@@ -1,7 +1,6 @@
-import { PodcastCardProps } from '@/types'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-
+import { PodcastCardProps } from '@/types';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 const PodcastCard = ({
   imgUrl, title, description, podcastId
 }: PodcastCardProps) => {
@@ -9,7 +8,6 @@ const PodcastCard = ({
 
   const handleViews = () => {
     // increase views
-
     router.push(`/podcasts/${podcastId}`, {
       scroll: true
     })
