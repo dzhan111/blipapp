@@ -8,6 +8,9 @@ import { cn } from "@/lib/utils";
 import { useAudio } from "@/providers/AudioProvider";
 
 import { Progress } from "./ui/progress";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
 
 const PodcastPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -16,6 +19,8 @@ const PodcastPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const { audio, setAudio } = useAudio();
+
+  const allPodcasts = useQuery(api.podcasts.getPodcastBySearch, {search: ''})
 
   const togglePlayPause = () => {
     if (audioRef.current?.paused) {
@@ -91,7 +96,21 @@ const PodcastPlayer = () => {
 
   const handleAudioEnded = () => {
     setIsPlaying(false);
+    let index = Math.floor(Math.random() * allPodcasts!.length);
+    let newAudio = allPodcasts![index];
+    while (newAudio!._id === audio?.podcastId) {
+      index = Math.floor(Math.random() * allPodcasts!.length);
+    }
+    setAudio({
+      title: newAudio?.podcastTitle!,
+      audioUrl: newAudio?.audioUrl!,
+      imageUrl: newAudio?.imageUrl!,
+      author: newAudio?.author!,
+      podcastId: newAudio?._id!,
+    });
   };
+
+  const skip = handleAudioEnded;
 
   return (
     <div
@@ -173,7 +192,15 @@ const PodcastPlayer = () => {
               className="cursor-pointer"
             />
           </div>
-          <div className="flex w-full gap-2  bg-orange-1 p-2 ml-4 font-bold text-white-1  rounded-xl">
+          <div className="flex w-full gap-2  bg-orange-1 p-2 ml-4 font-bold text-white-1  rounded-lg">
+            <button
+              onClick={() => skip()}
+              className="cursor-pointer text-16"
+            >
+            Skip
+            </button>
+          </div>
+          <div className="flex w-full gap-2  bg-orange-1 p-2 ml-4 font-bold text-white-1  rounded-lg">
             <button
               onClick={() => setAudio(undefined)}
               className="cursor-pointer text-16"

@@ -97,6 +97,23 @@ export const getPodcastById = query({
     podcastId: v.id("podcasts"),
   },
   handler: async (ctx, args) => {
+    // if (typeof args.podcastId === 'string') {
+    //   return undefined;
+    // }
+    return await ctx.db.get(args.podcastId);
+  },
+});
+
+// this query will get the podcast by the podcastId.
+export const getPodcastByIdPlusNull = query({
+  args: {
+    podcastId: v.optional(v.id("podcasts")),
+    isValid: v.boolean()
+  },
+  handler: async (ctx, args) => {
+    if (!args.isValid || !args.podcastId) {
+      return undefined;
+    }
     return await ctx.db.get(args.podcastId);
   },
 });
