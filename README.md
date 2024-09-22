@@ -1,4 +1,4 @@
-# (https://blipapp.vercel.app)[BlipApp]
+# [BlipApp](https://blipapp.vercel.app)
 ## Bite-Sized Audio, Big Impact!
 
 ## Team
