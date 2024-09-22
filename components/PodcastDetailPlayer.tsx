@@ -34,13 +34,13 @@ const PodcastDetailPlayer = ({
     try {
       await deletePodcast({ podcastId, imageStorageId, audioStorageId });
       toast({
-        title: "Podcast deleted",
+        title: "Blip deleted",
       });
       router.push("/");
     } catch (error) {
       console.error("Error deleting podcast", error);
       toast({
-        title: "Error deleting podcast",
+        title: "Error deleting Blip",
         variant: "destructive",
       });
     }
@@ -100,7 +100,7 @@ const PodcastDetailPlayer = ({
               height={20}
               alt="random play"
             />{" "}
-            &nbsp; Play podcast
+            &nbsp; Play
           </Button>
         </div>
       </div>

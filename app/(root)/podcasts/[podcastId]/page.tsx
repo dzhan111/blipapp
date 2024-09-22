@@ -25,7 +25,7 @@ const PodcastDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'po
     <section className="flex w-full flex-col">
       <header className="mt-9 flex items-center justify-between">
         <h1 className="text-20 font-bold text-white-1">
-          Currenty Playing
+          Blip Details
         </h1>
         <figure className="flex gap-3">
           <Image
@@ -54,7 +54,7 @@ const PodcastDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'po
         <div className='gap-10'></div>
       </div>
       <section className="mt-8 flex flex-col gap-5">
-        <h1 className="text-20 font-bold text-white-1">Similar Podcasts</h1>
+        <h1 className="text-20 font-bold text-white-1">Similar Blips</h1>
 
         {similarPodcasts && similarPodcasts.length > 0 ? (
           <div className="podcast_grid">
