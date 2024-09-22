@@ -16,7 +16,7 @@ export const createPodcast = mutation({
     voiceType: v.string(),
     views: v.number(),
     audioDuration: v.number(),
-    tags: v.array(v.string()).optional(),
+    tags: v.optional(v.array(v.string())),
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();

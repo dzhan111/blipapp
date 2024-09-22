@@ -18,7 +18,7 @@ export default defineSchema({
     voiceType: v.string(),
     audioDuration: v.number(),
     views: v.number(),
-    // tags: v.array(v.string()).optional(),
+    tags: v.optional(v.array(v.string())),
   })
     .searchIndex('search_author', { searchField: 'author' })
     .searchIndex('search_title', { searchField: 'podcastTitle' })
