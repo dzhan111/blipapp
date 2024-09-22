@@ -44,17 +44,21 @@ const GenerateThumbnail = ({ setImage, setImageStorageId, image, imagePrompt, se
     } catch (error) {
       console.log(error)
       toast({ title: 'Error generating thumbnail', variant: 'destructive'})
+      
     }
   }
 
   const generateImage = async () => {
     try {
+      setIsImageLoading(true)
       const response = await handleGenerateThumbnail({ prompt: imagePrompt });
       const blob = new Blob([response], { type: 'image/png' });
       handleImage(blob, `thumbnail-${uuidv4()}`);
+      setIsImageLoading(false);
     } catch (error) {
       console.log(error)
-      toast({ title: 'Error generating thumbnail', variant: 'destructive'})
+      toast({ title: 'Unsafe/empty prompt. Try again', variant: 'destructive'})
+      setIsImageLoading(false);
     }
   }
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
