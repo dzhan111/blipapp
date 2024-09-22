@@ -75,7 +75,7 @@ const CreatePodcast = () => {
       setIsSubmitting(true);
       if(!audioUrl || !imageUrl || !voiceType) {
         toast({
-          title: 'Please generate audio and image',
+          title: "Please generate audio and image",
         })
         setIsSubmitting(false);
         throw new Error('Please generate audio and image')
@@ -123,7 +123,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="Your Blip Name" {...field} />
                   </FormControl>
-                  <FormMessage className="text-white-1" />
+                  <FormMessage className="text-orange-1" />
                 </FormItem>
               )}
             />
@@ -163,7 +163,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Textarea className="input-class focus-visible:ring-offset-orange-1" placeholder="Write a short description of your blip" {...field} />
                   </FormControl>
-                  <FormMessage className="text-white-1" />
+                  <FormMessage className="text-orange-1" />
                 </FormItem>
               )}
             />

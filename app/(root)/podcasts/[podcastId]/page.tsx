@@ -9,7 +9,6 @@ import { Id } from '@/convex/_generated/dataModel'
 import { useUser } from '@clerk/nextjs'
 import { useQuery } from 'convex/react'
 import Image from 'next/image'
-import React from 'react'
 
 const PodcastDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'podcasts'> } }) => {
   const { user } = useUser();
@@ -52,10 +51,7 @@ const PodcastDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'po
           <h1 className='text-18 font-bold text-white-1'>Transcription</h1>
           <p className="text-16 font-medium text-white-2">{podcast?.voicePrompt}</p>
         </div>
-        <div className='flex flex-col gap-4'>
-          <h1 className='text-18 font-bold text-white-1'>Thumbnail Prompt</h1>
-          <p className="text-16 font-medium text-white-2">{podcast?.imagePrompt}</p>
-        </div>
+        <div className='gap-10'></div>
       </div>
       <section className="mt-8 flex flex-col gap-5">
         <h1 className="text-20 font-bold text-white-1">Similar Podcasts</h1>
