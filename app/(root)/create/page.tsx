@@ -74,10 +74,10 @@ const CreatePodcast = () => {
     try {
       setIsSubmitting(true);
       if(!audioUrl || !imageUrl || !voiceType) {
-        toast({
-          title: "Missing audio or image.",
-          variant:"destructive"
-        })
+        // toast({
+        //   title: "Missing.",
+        //   variant:"destructive"
+        // })
         setIsSubmitting(false);
         throw new Error('Please generate audio and image')
       }
