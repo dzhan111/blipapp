@@ -104,20 +104,6 @@ export const getPodcastById = query({
   },
 });
 
-// this query will get the podcast by the podcastId.
-export const getPodcastByIdPlusNull = query({
-  args: {
-    podcastId: v.optional(v.id("podcasts")),
-    isValid: v.boolean()
-  },
-  handler: async (ctx, args) => {
-    if (!args.isValid || !args.podcastId) {
-      return undefined;
-    }
-    return await ctx.db.get(args.podcastId);
-  },
-});
-
 // this query will get the podcasts based on the views of the podcast , which we are showing in the Trending Podcasts section.
 export const getTrendingPodcasts = query({
   handler: async (ctx) => {
@@ -189,7 +175,7 @@ export const getPodcastBySearch = query({
 // this mutation will update the views of the podcast.
 export const updatePodcastViews = mutation({
   args: {
-    podcastId: v.id("podcasts"),
+    podcastId: v.id("podcasts")
   },
   handler: async (ctx, args) => {
     const podcast = await ctx.db.get(args.podcastId);

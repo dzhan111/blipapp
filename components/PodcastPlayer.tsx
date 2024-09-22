@@ -8,8 +8,9 @@ import { cn } from "@/lib/utils";
 import { useAudio } from "@/providers/AudioProvider";
 
 import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
+import { useQuery, useMutation } from "convex/react";
 import { Progress } from "./ui/progress";
+import { Id } from "@/convex/_generated/dataModel";
 
 const PodcastPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -18,6 +19,8 @@ const PodcastPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const { audio, setAudio } = useAudio();
+
+  const addView = useMutation(api.podcasts.updatePodcastViews);
 
   const allPodcasts = useQuery(api.podcasts.getPodcastBySearch, {search: ''})
 
@@ -93,12 +96,21 @@ const PodcastPlayer = () => {
     }
   };
 
-  const handleAudioEnded = () => {
+  const handleAudioEnded = (skip: boolean) => () => {
     setIsPlaying(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+      audioRef.current.load();
+    }
+    if (!skip) {
+      addView({podcastId: audio!.podcastId! as Id<'podcasts'>});
+    }
     let index = Math.floor(Math.random() * allPodcasts!.length);
     let newAudio = allPodcasts![index];
     while (newAudio!._id === audio?.podcastId) {
       index = Math.floor(Math.random() * allPodcasts!.length);
+      newAudio = allPodcasts![index];
     }
     setAudio({
       title: newAudio?.podcastTitle!,
@@ -108,8 +120,6 @@ const PodcastPlayer = () => {
       podcastId: newAudio?._id!,
     });
   };
-
-  const skip = handleAudioEnded;
 
   return (
     <div
@@ -129,7 +139,7 @@ const PodcastPlayer = () => {
           src={audio?.audioUrl}
           className="hidden"
           onLoadedMetadata={handleLoadedMetadata}
-          onEnded={handleAudioEnded}
+          onEnded={handleAudioEnded(false)}
         />
         <div className="flex items-center gap-4 max-md:hidden">
           <Link href={`/podcasts/${audio?.podcastId}`}>
@@ -193,7 +203,7 @@ const PodcastPlayer = () => {
           </div>
           <div className="flex w-full gap-2  bg-orange-1 p-2 ml-4 font-bold text-white-1  rounded-lg">
             <button
-              onClick={() => skip()}
+              onClick={handleAudioEnded(true)}
               className="cursor-pointer text-16"
             >
             Skip
@@ -201,7 +211,13 @@ const PodcastPlayer = () => {
           </div>
           <div className="flex w-full gap-2  bg-orange-1 p-2 ml-4 font-bold text-white-1  rounded-lg">
             <button
-              onClick={() => setAudio(undefined)}
+              onClick={() => {
+                if (audioRef.current) {
+                  audioRef.current.pause();
+                  audioRef.current.src = "";
+                  audioRef.current.load();
+                }
+                setAudio(undefined)}}
               className="cursor-pointer text-16"
             >
             Close
