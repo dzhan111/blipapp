@@ -1,6 +1,8 @@
 # [BlipApp](https://blipapp.vercel.app)
 ## Bite-Sized Audio, Big Impact!
 
+PennApps XXV Best Entertainment Hack
+
 ## Team
 1. David Zhan (zhandavid4@gmail.com)
 2. Eric Zou (ezou626@gmail.com)
